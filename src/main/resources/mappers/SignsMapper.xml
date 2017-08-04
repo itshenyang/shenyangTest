@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.keruis.cilent.dao.SignsDAO" >
+    <insert id="insert" parameterType="sings">
+        insert into `signs`
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="record_id != null" >
+                record_id,
+            </if>
+            <if test="signer != null" >
+                signer,
+            </if>
+            <if test="sign_lng != null" >
+                sign_lng,
+            </if>
+            <if test="sign_lat != null" >
+                sign_lat,
+            </if>
+            <if test="sign_address != null" >
+                sign_address,
+            </if>
+            <if test="sign_road != null" >
+                sign_road,
+            </if>
+            sign_time
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="record_id != null" >
+                #{record_id},
+            </if>
+            <if test="signer != null" >
+                #{signer},
+            </if>
+            <if test="sign_lng != null" >
+                #{sign_lng},
+            </if>
+            <if test="sign_lat != null" >
+                #{sign_lat},
+            </if>
+            <if test="sign_address != null" >
+                #{sign_address},
+            </if>
+            <if test="sign_road != null" >
+                #{sign_road},
+            </if>
+            #{sign_time}
+        </trim>
+    </insert>
+
+</mapper>

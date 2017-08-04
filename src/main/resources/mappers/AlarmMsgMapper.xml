@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.keruis.cilent.dao.AlarmMsgDAO">
+    <select id="query_alarm_all_num" parameterType="device_data" resultType="java.lang.Integer">
+           SELECT COUNT(*) FROM alarm_msg WHERE
+        <if test="d_id!=null">
+            d_id=#{d_id} AND
+        </if>
+        create_time &gt; #{device_time} AND create_time &lt; #{device_timeend} ;
+    </select>
+
+    <select id="query_alarm_ByTime" parameterType="device_data" resultType="alarmmsg">
+        SELECT id id, d_id dId, d_name dName, occur_time occurTime, alarm_info alarmInfo, alarm_state alarmState, create_time createTime, remark remark FROM alarm_msg
+                WHERE
+                <if test="d_id!=null">
+                    d_id=#{d_id} AND
+                </if>
+                create_time &gt;= #{device_time} AND
+                create_time &lt;= #{device_timeend} AND
+                id &lt;=
+                    (SELECT id FROM alarm_msg WHERE
+                            <if test="d_id!=null">
+                                d_id=#{d_id} AND
+                            </if>
+                    create_time &gt;= #{device_time} AND create_time &lt;= #{device_timeend} ORDER BY id DESC  LIMIT #{bluetooth},1)
+
+        ORDER BY create_time DESC LIMIT #{delayed};
+    </select>
+</mapper>

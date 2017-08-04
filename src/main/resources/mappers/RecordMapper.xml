@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.keruis.cilent.dao.RecordDAO">
+    <insert id="OnRecord" parameterType="records" useGeneratedKeys="true" keyProperty="id">
+        insert into `records`
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="device_id != null">
+                device_id,
+            </if>
+            <if test="creator != null">
+                creator,
+            </if>
+            <if test="start_lng != null">
+                start_lng,
+            </if>
+            <if test="start_lat != null">
+                start_lat,
+            </if>
+            <if test="start_address != null">
+                start_address,
+            </if>
+            <if test="start_road != null">
+                start_road,
+            </if>
+            start_time
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+
+            <if test="device_id != null">
+                #{device_id},
+            </if>
+            <if test="creator != null">
+                #{creator},
+            </if>
+            <if test="start_lng != null">
+                #{start_lng},
+            </if>
+            <if test="start_lat != null">
+                #{start_lat},
+            </if>
+            <if test="start_address != null">
+                #{start_address},
+            </if>
+            <if test="start_road != null">
+                #{start_road},
+            </if>
+            #{start_time}
+        </trim>
+    </insert>
+    <update id="CloseRecord" parameterType="records">
+        update `records`
+        <set>
+            <if test="closer != null">
+                closer = #{closer},
+            </if>
+
+            <if test="close_lng != null">
+                close_lng = #{close_lng},
+            </if>
+            <if test="close_lat != null">
+                close_lat = #{close_lat},
+            </if>
+            <if test="close_address != null">
+            close_address = #{close_address},
+        </if>
+            <if test="close_road != null">
+                close_road = #{close_road},
+            </if>
+            close_time = #{close_time}
+        </set>
+        where id = #{id}
+    </update>
+    <select id="selectOne" parameterType="records" resultType="records">
+        SELECT * FROM  records WHERE device_id = #{device_id} AND close_time IS NULL ORDER BY start_time DESC LIMIT 1;
+    </select>
+</mapper>

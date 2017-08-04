@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.keruis.cilent.dao.DeviceDataDAO">
+    <select id="queryDeviceDataByDidAndTime" resultType="device_data" parameterType="device_data">
+        SELECT * FROM device_data WHERE d_id =#{d_id} AND device_time &gt;= #{device_time} AND device_time &lt;=
+        #{device_timeend}
+    </select>
+
+    <insert id="insertTestData" parameterType="device_data">
+        insert into device_data
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="d_id != null">
+                d_id,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="server_time != null">
+                server_time,
+            </if>
+            <if test="gps_time != null">
+                gps_time,
+            </if>
+            <if test="device_time != null">
+                device_time,
+            </if>
+            <if test="frequency_1 != null">
+                frequency_1,
+            </if>
+            <if test="frequency_2 != null">
+                frequency_2,
+            </if>
+            <if test="bluetooth != null">
+                bluetooth,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="work_status != null">
+                work_status,
+            </if>
+            <if test="delayed != null">
+                delayed,
+            </if>
+            <if test="locate_status != null">
+                locate_status,
+            </if>
+            <if test="speed != null">
+                speed,
+            </if>
+            <if test="humidity != null">
+                humidity,
+            </if>
+            <if test="temp_1 != null">
+                temp_1,
+            </if>
+            <if test="temp_2 != null">
+                temp_2,
+            </if>
+            <if test="working_temp_1 != null">
+                working_temp_1,
+            </if>
+            <if test="working_temp_2 != null">
+                working_temp_2,
+            </if>
+            <if test="env_temp_1 != null">
+                env_temp_1,
+            </if>
+            <if test="env_temp_2 != null">
+                env_temp_2,
+            </if>
+            <if test="longitude != null">
+                longitude,
+            </if>
+            <if test="latitude != null">
+                latitude,
+            </if>
+            <if test="address != null">
+                address,
+            </if>
+            <if test="door != null">
+                door,
+            </if>
+            <if test="error_code != null">
+                error_code,
+            </if>
+            <if test="voltage != null">
+                voltage,
+            </if>
+            <if test="battery != null">
+                battery,
+            </if>
+            <if test="gsm_signal != null">
+                gsm_signal,
+            </if>
+            <if test="door_by_hand != null">
+                door_by_hand,
+            </if>
+            <if test="scheduling != null">
+                scheduling,
+            </if>
+            <if test="mark != null">
+                mark,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="d_id != null">
+                #{d_id,jdbcType=INTEGER},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="server_time != null">
+                #{server_time,jdbcType=TIMESTAMP},
+            </if>
+            <if test="gps_time != null">
+                #{gps_time,jdbcType=TIMESTAMP},
+            </if>
+            <if test="device_time != null">
+                #{device_time,jdbcType=TIMESTAMP},
+            </if>
+            <if test="frequency_1 != null">
+                #{frequency_1,jdbcType=INTEGER},
+            </if>
+            <if test="frequency_2 != null">
+                #{frequency_2,jdbcType=INTEGER},
+            </if>
+            <if test="bluetooth != null">
+                #{bluetooth,jdbcType=TINYINT},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=TINYINT},
+            </if>
+            <if test="work_status != null">
+                #{work_status,jdbcType=TINYINT},
+            </if>
+            <if test="delayed != null">
+                #{delayed,jdbcType=TINYINT},
+            </if>
+            <if test="locate_status != null">
+                #{locate_status,jdbcType=TINYINT},
+            </if>
+            <if test="speed != null">
+                #{speed,jdbcType=REAL},
+            </if>
+            <if test="humidity != null">
+                #{humidity,jdbcType=REAL},
+            </if>
+            <if test="temp_1 != null">
+                #{temp_1,jdbcType=REAL},
+            </if>
+            <if test="temp_2 != null">
+                #{temp_1,jdbcType=REAL},
+            </if>
+            <if test="working_temp_1 != null">
+                #{working_temp_1,jdbcType=REAL},
+            </if>
+            <if test="working_temp_2 != null">
+                #{working_temp_2,jdbcType=REAL},
+            </if>
+            <if test="env_temp_1 != null">
+                #{env_temp_1,jdbcType=REAL},
+            </if>
+            <if test="env_temp_2 != null">
+                #{env_temp_2,jdbcType=REAL},
+            </if>
+            <if test="longitude != null">
+                #{longitude,jdbcType=DOUBLE},
+            </if>
+            <if test="latitude != null">
+                #{latitude,jdbcType=DOUBLE},
+            </if>
+            <if test="address != null">
+                #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="door != null">
+                #{door,jdbcType=TINYINT},
+            </if>
+            <if test="error_code != null">
+                #{error_code,jdbcType=TINYINT},
+            </if>
+            <if test="voltage != null">
+                #{voltage,jdbcType=REAL},
+            </if>
+            <if test="battery != null">
+                #{battery,jdbcType=REAL},
+            </if>
+            <if test="gsm_signal != null">
+                #{gsm_signal,jdbcType=REAL},
+            </if>
+            <if test="door_by_hand != null">
+                #{door_by_hand,jdbcType=TINYINT},
+            </if>
+            <if test="scheduling != null">
+                #{scheduling,jdbcType=TINYINT},
+            </if>
+            <if test="mark != null">
+                #{mark,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <select id="queryOneTmp" parameterType="device_data" resultType="device_data">
+        SELECT * FROM device_data WHERE d_id=#{d_id} AND device_time &lt;#{device_time}  ORDER BY device_time DESC LIMIT 1
+    </select>
+</mapper>
