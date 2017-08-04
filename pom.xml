@@ -147,7 +147,7 @@
 
 
     <build>
-        <finalName>keruiscloudserver</finalName>
+        <finalName>shenyangTest</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
@@ -158,7 +158,7 @@
                     <url>http://139.196.24.9:8080/manager/text</url>
                     <username>keruis</username>
                     <password>Keruis@123</password>
-                    <path>/keruiscloudserver</path>
+                    <path>/shenyangTest</path>
                 </configuration>
             </plugin>
             <plugin>
