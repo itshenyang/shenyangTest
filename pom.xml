@@ -155,7 +155,7 @@
                 <version>2.2</version>
                 <configuration>
                     <uriEncoding>UTF-8</uriEncoding>
-                    <url>http://hb.keruis.com:8080/manager/text</url>
+                    <url>http://139.196.24.9:8080/manager/text</url>
                     <username>keruis</username>
                     <password>Keruis@123</password>
                     <path>/keruiscloudserver</path>
